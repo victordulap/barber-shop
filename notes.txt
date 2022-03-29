@@ -1,0 +1,14 @@
+How should project work?
+
+Client enters the website, sees a barber shop landing with photos and text about the barber shop and its experience
+He has options to choose in services (like haircut, shave, packages and others that include styling)
+After he chose his option he books the appointment inlcuding the day and the time, the data displayed here is fetched from database to see whats free. 
+	Note here: He can only choose on a span of max 10 days ahead (controled on front-end), and on back end is sent and error is the appointment if more than 10 days ahead from the clients local time.
+After he booked the appointment he has one hour to confirm it on his email.
+
+
+
+STEPS OF EXECUTION;
+	1. make the front end part of the project with mock data from back end;
+	2. create the back end and link it with the front end;
+	3. host back end and front end;
