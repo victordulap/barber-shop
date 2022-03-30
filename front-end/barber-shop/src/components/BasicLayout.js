@@ -4,6 +4,7 @@ import { useTheme } from '@mui/material/styles';
 import styled from 'styled-components';
 import { grey } from '@mui/material/colors';
 import { BG_DECORATION_POSITIONS } from '../utils/constants';
+import Navbar from './Navbar';
 
 const Wrapper = styled.div`
   background: ${({ bgColor }) => bgColor};
@@ -42,6 +43,7 @@ export const BasicLayout = ({
   children,
   height,
   bgDecPositions = BG_DECORATION_POSITIONS.default,
+  navbar,
 }) => {
   const theme = useTheme();
   return (
@@ -60,6 +62,7 @@ export const BasicLayout = ({
           bottom={bgDecPositions[1].bottom}
         />
       </BgDecorationWrapper>
+      {navbar && <Navbar />}
       <StyledContainer>{children}</StyledContainer>
     </Wrapper>
   );
