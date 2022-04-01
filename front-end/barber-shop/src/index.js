@@ -7,6 +7,7 @@ import './fonts.js';
 import GlobalStyle from './global.style';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 import { grey, blue, red } from '@mui/material/colors';
+import { BrowserRouter } from 'react-router-dom';
 
 const theme = createTheme({
   palette: {
@@ -26,7 +27,9 @@ ReactDOM.render(
     <Provider store={store}>
       <GlobalStyle />
       <ThemeProvider theme={theme}>
-        <App />
+        <BrowserRouter>
+          <App />
+        </BrowserRouter>
       </ThemeProvider>
     </Provider>
   </React.StrictMode>,

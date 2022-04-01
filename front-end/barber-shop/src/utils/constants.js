@@ -8,3 +8,5 @@ export const BG_DECORATION_POSITIONS = {
     { right: '-90%', bottom: '-70%' },
   ],
 };
+
+export const transition = { duration: 0.5, ease: [0.43, 0.13, 0.23, 0.96] };

@@ -3,8 +3,13 @@ import React from 'react';
 import { useTheme } from '@mui/material/styles';
 import styled from 'styled-components';
 import { grey } from '@mui/material/colors';
-import { BG_DECORATION_POSITIONS } from '../utils/constants';
+import {
+  BG_DECORATION_POSITIONS,
+  slowTransition,
+  transition,
+} from '../utils/constants';
 import Navbar from './Navbar';
+import { motion } from 'framer-motion';
 
 const Wrapper = styled.div`
   background: ${({ bgColor }) => bgColor};
@@ -38,6 +43,8 @@ const StyledContainer = styled(Container)`
   z-index: 2;
   position: relative;
 `;
+const AnimBgDecorationWrapper = motion(BgDecorationWrapper);
+const AnimBgDecoration = motion(BgDecoration);
 
 export const BasicLayout = ({
   children,
@@ -53,17 +60,34 @@ export const BasicLayout = ({
       height={height}
     >
       <BgDecorationWrapper>
-        <BgDecoration
+        <AnimBgDecoration
           left={bgDecPositions[0].left}
           top={bgDecPositions[0].top}
+          initial={{ y: '-100vh' }}
+          animate={{ y: 0 }}
+          exit={{ y: '-100vh' }}
+          transition={{ ...transition, duration: 0.6 }}
         />
-        <BgDecoration
+        <AnimBgDecoration
           right={bgDecPositions[1].right}
           bottom={bgDecPositions[1].bottom}
+          initial={{ y: '100vh' }}
+          animate={{ y: 0 }}
+          exit={{ y: '100vh' }}
+          transition={{ ...transition, duration: 0.6 }}
         />
       </BgDecorationWrapper>
       {navbar && <Navbar />}
-      <StyledContainer>{children}</StyledContainer>
+      <StyledContainer>
+        <motion.div
+          initial={{ x: '-100vw' }}
+          animate={{ x: 0 }}
+          exit={{ x: '100vw' }}
+          transition={transition}
+        >
+          {children}
+        </motion.div>
+      </StyledContainer>
     </Wrapper>
   );
 };

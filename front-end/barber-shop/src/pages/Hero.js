@@ -7,6 +7,8 @@ import { Button, Divider } from '@mui/material';
 import ArrowForwardIcon from '@mui/icons-material/ArrowForward';
 import { Link } from 'react-router-dom';
 import { ScriptText } from '../components/styles/Text.style';
+import { motion } from 'framer-motion';
+import { transition } from '../utils/constants';
 
 const StyledHero = styled.div`
   height: 100vh;

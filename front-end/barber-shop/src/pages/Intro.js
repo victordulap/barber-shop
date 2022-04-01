@@ -2,7 +2,7 @@ import { Button, Divider, Typography } from '@mui/material';
 import React from 'react';
 import styled from 'styled-components';
 import { BasicLayout } from '../components/BasicLayout';
-import Img1 from '../assets/barberArchitecture/2.jpg';
+import Img1 from '../assets/barberArchitecture/4.jpg';
 import { ResponsiveImage } from '../components/ResponsiveImage';
 import { BG_DECORATION_POSITIONS } from '../utils/constants';
 import { blue, red } from '@mui/material/colors';
@@ -43,10 +43,11 @@ const MainButtonsContainer = styled.div`
       border-radius: 4px 4px 0 0;
       position: relative;
       font-weight: 600;
-
+      color: ${blue[500]};
       &:last-of-type {
         background-color: ${`${red[200]}25`};
         border-radius: 0 0 4px 4px;
+        color: ${red[500]};
 
         &::after {
           content: '';
@@ -79,29 +80,19 @@ const Intro = () => {
         <Header>
           <Typography variant="h4">
             Here at VD Barber Shop we choose{' '}
-            <span style={{ color: blue[200] }}>Quality</span> over{' '}
-            <span style={{ color: red[200] }}>Quantity</span>
+            <span style={{ color: blue[200], fontWeight: 500 }}>Quality</span>{' '}
+            over{' '}
+            <span style={{ color: red[200], fontWeight: 500 }}>Quantity</span>
           </Typography>
         </Header>
-        <Divider sx={{ my: 4 }} />
+        <Divider sx={{ my: 5 }} />
         <Content>
-          {/* use image as a backround container, here we will have 2 buttons on top of it in a column arangment, services and more about us */}
           <MainButtonsContainer>
             <div className="buttons">
-              <Button
-                variant="text"
-                size="large"
-                className="btn"
-                sx={{ color: blue[400] }}
-              >
+              <Button variant="text" size="large" className="btn" sx={{}}>
                 services
               </Button>
-              <Button
-                variant="text"
-                size="large"
-                className="btn"
-                sx={{ color: red[400] }}
-              >
+              <Button variant="text" size="large" className="btn" sx={{}}>
                 more about us
               </Button>
             </div>
