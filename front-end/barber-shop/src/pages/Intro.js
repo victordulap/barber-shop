@@ -3,7 +3,10 @@ import React from 'react';
 import styled from 'styled-components';
 import { BasicLayout } from '../components/BasicLayout';
 import Img1 from '../assets/barberArchitecture/4.jpg';
-import { ResponsiveImage } from '../components/ResponsiveImage';
+import {
+  AspectRatioContainer,
+  ResponsiveImage,
+} from '../components/ResponsiveImage';
 import { BG_DECORATION_POSITIONS } from '../utils/constants';
 import { blue, red } from '@mui/material/colors';
 
@@ -16,12 +19,20 @@ const Wrapper = styled.div`
 const Header = styled.header``;
 const Content = styled.main`
   margin-bottom: 3rem;
-`;
-const MainButtonsContainer = styled.div`
-  position: relative;
-  height: 100%;
   border-radius: 4px;
   overflow: hidden;
+
+  ${ResponsiveImage} {
+    filter: grayscale(1);
+  }
+`;
+const MainButtonsContainer = styled.div`
+  position: absolute;
+  top: 0;
+  height: 100%;
+  width: 100%;
+
+  z-index: 2;
 
   & .buttons {
     z-index: 2;
@@ -60,13 +71,6 @@ const MainButtonsContainer = styled.div`
       }
     }
   }
-
-  & ${ResponsiveImage} {
-    position: relative;
-    top: 0;
-    left: 0;
-    filter: grayscale(1);
-  }
 `;
 
 const Intro = () => {
@@ -87,17 +91,19 @@ const Intro = () => {
         </Header>
         <Divider sx={{ my: 5 }} />
         <Content>
-          <MainButtonsContainer>
-            <div className="buttons">
-              <Button variant="text" size="large" className="btn" sx={{}}>
-                services
-              </Button>
-              <Button variant="text" size="large" className="btn" sx={{}}>
-                more about us
-              </Button>
-            </div>
-            <ResponsiveImage src={Img1} alt="VD Barber Shop Inside" />
-          </MainButtonsContainer>
+          <AspectRatioContainer ratio={3 / 4}>
+            <MainButtonsContainer>
+              <div className="buttons">
+                <Button variant="text" size="large" className="btn" sx={{}}>
+                  services
+                </Button>
+                <Button variant="text" size="large" className="btn" sx={{}}>
+                  more about us
+                </Button>
+              </div>
+            </MainButtonsContainer>
+            <ResponsiveImage src={Img1} alt="VD Barber Shop Inside" vertical />
+          </AspectRatioContainer>
         </Content>
       </Wrapper>
     </BasicLayout>
