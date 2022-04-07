@@ -9,6 +9,7 @@ import {
 } from '../components/ResponsiveImage';
 import { BG_DECORATION_POSITIONS } from '../utils/constants';
 import { blue, red } from '@mui/material/colors';
+import { Link } from 'react-router-dom';
 
 const Wrapper = styled.div`
   height: 100vh;
@@ -45,7 +46,6 @@ const MainButtonsContainer = styled.div`
 
     & .btn {
       width: 100%;
-      display: block;
       flex: 1 0 50%;
       height: 50%;
       padding-block: 0;
@@ -94,10 +94,22 @@ const Intro = () => {
           <AspectRatioContainer ratio={3 / 4}>
             <MainButtonsContainer>
               <div className="buttons">
-                <Button variant="text" size="large" className="btn" sx={{}}>
+                <Button
+                  variant="text"
+                  size="large"
+                  className="btn"
+                  component={Link}
+                  to="/services"
+                >
                   services
                 </Button>
-                <Button variant="text" size="large" className="btn" sx={{}}>
+                <Button
+                  variant="text"
+                  size="large"
+                  className="btn"
+                  component={Link}
+                  to="/services"
+                >
                   more about us
                 </Button>
               </div>

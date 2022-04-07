@@ -14,6 +14,7 @@ import {
   ListItemText,
 } from '@mui/material';
 import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
 import { MenuBtn, StyledNavbar } from './styles/Navbar.style';
 import { ScriptText } from './styles/Text.style';
 
@@ -21,10 +22,12 @@ const menuItems = [
   {
     name: 'Services',
     icon: <ContentCutIcon />,
+    link: '/services',
   },
   {
     name: 'About us',
     icon: <InfoIcon />,
+    link: '/about-us',
   },
 ];
 
@@ -43,10 +46,12 @@ const Navbar = () => {
         </ListItem>
         <Divider sx={{ my: 1 }} />
         {menuItems.map((menuItem) => (
-          <ListItem button key={`menu-item-${menuItem.name}`}>
-            <ListItemIcon>{menuItem.icon}</ListItemIcon>
-            <ListItemText primary={menuItem.name} />
-          </ListItem>
+          <Link key={`menu-item-${menuItem.name}`} to={menuItem.link}>
+            <ListItem button>
+              <ListItemIcon>{menuItem.icon}</ListItemIcon>
+              <ListItemText primary={menuItem.name} />
+            </ListItem>
+          </Link>
         ))}
       </List>
     </Box>
